@@ -25,4 +25,5 @@ Say: “The prototype is built with HTML, CSS, JavaScript, Twitch IRC, Twitch CL
 - Confirm the app shows `LIVE · #channel` and the Twitch test signal appears.
 - Arrange Twitch chat, the stream, and the map so the interaction is readable.
 - Close token and developer-console windows; ensure no credentials appear in the capture.
+- Do not add copyrighted music, third-party logos, or other third-party marks unless you have permission. Keep the recording focused on the project UI and chat interaction.
 - Keep the final video under three minutes, upload it to YouTube, and set visibility to **Public**.

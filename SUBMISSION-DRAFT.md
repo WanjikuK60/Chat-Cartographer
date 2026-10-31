@@ -17,6 +17,10 @@ Chat Cartographer is a proof of concept. It does not yet include persistent stor
 
 HTML, CSS, JavaScript, Twitch IRC WebSocket, Twitch CLI, OpenAI Codex.
 
+## Intended platform
+
+Desktop web browser; the current demonstrated setup is Windows with Google Chrome.
+
 ## Codex Session ID
 
 `01a191d5-5b5d-79b1-853e-21b3537866bf`

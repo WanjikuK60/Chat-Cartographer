@@ -4,7 +4,7 @@ Chat Cartographer turns Twitch chat messages into a shared, live field map. View
 
 ## Run the demo
 
-On Windows, double-click `START-CHAT-CARTOGRAPHER.bat`, or open `index.html` in a modern browser. The **Try it out** form works without Twitch credentials.
+**Intended platform:** desktop web browser. The current demonstrated setup is Windows with Google Chrome. On Windows, double-click `START-CHAT-CARTOGRAPHER.bat`, or open `index.html` in a modern browser. The **Try it out** form works without Twitch credentials. Other operating systems and browsers have not been verified for this submission.
 
 ## Connect Twitch chat
 
