@@ -1,56 +1,154 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#10111a" />
-  <title>Chat Cartographer — Stream Map</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#" aria-label="Chat Cartographer home"><span class="brand-mark">✳</span><span>CHAT <b>CARTOGRAPHER</b></span></a>
-      <div class="stream-status"><span class="live-dot"></span><span id="connection-label">DEMO MODE</span><span class="status-divider"></span><span id="viewer-count">1.2K VIEWERS</span></div>
-      <button class="icon-button" id="settings-button" aria-label="Open connection settings" title="Connection settings">⚙</button>
-    </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10111a" />
+    <title>Chat Cartographer — Stream Map</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Chat Cartographer home"
+          ><span class="brand-mark">✳</span><span>CHAT <b>CARTOGRAPHER</b></span></a
+        >
+        <div class="stream-status">
+          <span class="live-dot"></span><span id="connection-label">DEMO MODE</span>
+        </div>
+        <button
+          class="icon-button"
+          id="settings-button"
+          aria-label="Open connection settings"
+          title="Connection settings"
+        >
+          ⚙
+        </button>
+      </header>
 
-    <section class="intro-row">
-      <div><p class="eyebrow">THE CHAT IS WRITING THE STORY</p><h1>Tonight’s <em>field notes</em></h1></div>
-      <div class="stream-title"><span class="stream-icon">◉</span><span><b>Starfall Expedition</b><small>Exploring the unknown · <span id="entry-count">0</span> discoveries</small></span></div>
-    </section>
+      <section class="intro-row">
+        <div>
+          <p class="eyebrow">THE CHAT IS WRITING THE STORY</p>
+          <h1>Tonight’s <em>field notes</em></h1>
+        </div>
+        <div class="stream-title">
+          <span class="stream-icon">◉</span
+          ><span
+            ><b>Starfall Expedition</b
+            ><small
+              >Exploring the unknown · <span id="entry-count">0</span> discoveries</small
+            ></span
+          >
+        </div>
+      </section>
 
-    <section class="map-stage" aria-label="Community map">
-      <div class="map-grid"></div><div class="map-orbit orbit-one"></div><div class="map-orbit orbit-two"></div>
-      <div class="map-label label-top"><span class="tiny-star">✦</span> COMMUNITY SIGNALS <span class="label-line"></span> LIVE</div>
-      <div class="map-center"><span class="center-pulse"></span><span class="center-star">✦</span><small>THE STREAM</small></div>
-      <svg class="map-lines" viewBox="0 0 1000 470" preserveAspectRatio="none" aria-hidden="true"><path d="M500 235 Q340 140 220 120"/><path d="M500 235 Q680 140 790 115"/><path d="M500 235 Q320 330 250 360"/><path d="M500 235 Q680 320 750 350"/><path d="M500 235 Q480 110 510 70"/></svg>
-      <div class="landmark-stack" id="landmarks"></div>
-      <div class="empty-hint" id="empty-hint"><span>✧</span><b>Your community’s map starts here</b><small>Chat <code>!map</code> followed by a thought<br/>to add the first signal.</small></div>
-      <div class="map-legend"><span><i class="legend-dot theory"></i> THEORY</span><span><i class="legend-dot find"></i> DISCOVERY</span><span><i class="legend-dot moment"></i> MOMENT</span></div>
-      <div class="map-coordinates">SECTOR 04 <span>·</span> LIVE CARTOGRAPHY</div>
-    </section>
+      <section class="map-stage" aria-label="Community map">
+        <div class="map-grid"></div>
+        <div class="map-orbit orbit-one"></div>
+        <div class="map-orbit orbit-two"></div>
+        <div class="map-label label-top">
+          <span class="tiny-star">✦</span> COMMUNITY SIGNALS <span class="label-line"></span> LIVE
+        </div>
+        <div class="map-center">
+          <span class="center-pulse"></span><span class="center-star">✦</span
+          ><small>THE STREAM</small>
+        </div>
+        <svg class="map-lines" viewBox="0 0 1000 470" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M500 235 Q340 140 220 120" />
+          <path d="M500 235 Q680 140 790 115" />
+          <path d="M500 235 Q320 330 250 360" />
+          <path d="M500 235 Q680 320 750 350" />
+          <path d="M500 235 Q480 110 510 70" />
+        </svg>
+        <div class="landmark-stack" id="landmarks"></div>
+        <div class="empty-hint" id="empty-hint">
+          <span>✧</span><b>Your community’s map starts here</b
+          ><small>Chat <code>!map</code> followed by a thought<br />to add the first signal.</small>
+        </div>
+        <div class="map-legend">
+          <span><i class="legend-dot theory"></i> THEORY</span
+          ><span><i class="legend-dot find"></i> DISCOVERY</span
+          ><span><i class="legend-dot moment"></i> MOMENT</span>
+        </div>
+        <div class="map-coordinates">SECTOR 04 <span>·</span> LIVE CARTOGRAPHY</div>
+      </section>
 
-    <section class="below-map">
-      <div class="feed-heading"><div><p class="eyebrow">FROM THE CREW</p><h2>Recent signals <span class="count-pill" id="feed-count">0</span></h2></div><button class="text-button" id="clear-button">Clear map <span>↗</span></button></div>
-      <div class="signal-feed" id="signal-feed"><div class="feed-empty">Waiting for your crew to send a signal…</div></div>
-      <form class="mock-form" id="mock-form"><label for="mock-input">TRY IT OUT</label><input id="mock-input" maxlength="100" placeholder="Type a chat thought…" autocomplete="off"/><select id="mock-user" aria-label="Choose demo viewer"><option>orbit_ada</option><option>pixelpilgrim</option><option>mossycomet</option><option>you</option></select><button type="submit">Send signal <span>↗</span></button></form>
-    </section>
+      <section class="below-map">
+        <div class="feed-heading">
+          <div>
+            <p class="eyebrow">FROM THE CREW</p>
+            <h2>Recent signals <span class="count-pill" id="feed-count">0</span></h2>
+          </div>
+          <button class="text-button" id="clear-button">Clear map <span>↗</span></button>
+        </div>
+        <div class="signal-feed" id="signal-feed">
+          <div class="feed-empty">Waiting for your crew to send a signal…</div>
+        </div>
+        <form class="mock-form" id="mock-form">
+          <label for="mock-input">TRY IT OUT</label
+          ><input
+            id="mock-input"
+            maxlength="100"
+            placeholder="Type a chat thought…"
+            autocomplete="off"
+          /><select id="mock-user" aria-label="Choose demo viewer">
+            <option>orbit_ada</option>
+            <option>pixelpilgrim</option>
+            <option>mossycomet</option>
+            <option>you</option></select
+          ><button type="submit">Send signal <span>↗</span></button>
+        </form>
+      </section>
 
-    <footer><span>MADE FOR THE MOMENTS BETWEEN THE MOMENTS <b>✳</b></span><span>CHAT MAKES THE MAP</span></footer>
-  </main>
+      <footer>
+        <span>MADE FOR THE MOMENTS BETWEEN THE MOMENTS <b>✳</b></span
+        ><span>CHAT MAKES THE MAP</span>
+      </footer>
+    </main>
 
-  <dialog id="settings-dialog">
-    <form method="dialog" class="dialog-close-row"><button class="icon-button" aria-label="Close">×</button></form>
-    <p class="eyebrow">CONNECT YOUR CHANNEL</p><h2>Bring chat into the map.</h2><p class="dialog-copy">Connect to Twitch chat with an OAuth token that has chat read access. Your token stays in this browser tab and is never saved.</p>
-    <label class="field-label" for="channel-input">CHANNEL NAME</label><input class="dialog-input" id="channel-input" placeholder="yourchannel" autocomplete="off" />
-    <label class="field-label" for="username-input">ACCOUNT THAT OWNS THE TOKEN</label><input class="dialog-input" id="username-input" placeholder="yourtwitchusername" autocomplete="off" />
-    <label class="field-label" for="token-input">CHAT OAUTH TOKEN</label><input class="dialog-input" id="token-input" type="password" placeholder="oauth:…" autocomplete="off" />
-    <p class="token-help">Generate a token with <code>chat:read</code> permission. Do not share it or use a token you do not control.</p>
-    <div class="dialog-actions"><button type="button" class="secondary-button" id="disconnect-button">Use demo mode</button><button type="button" class="primary-button" id="connect-button">Connect to chat</button></div>
-    <p id="connection-error" class="connection-error" role="status"></p>
-  </dialog>
+    <dialog id="settings-dialog">
+      <form method="dialog" class="dialog-close-row">
+        <button class="icon-button" aria-label="Close">×</button>
+      </form>
+      <p class="eyebrow">CONNECT YOUR CHANNEL</p>
+      <h2>Bring chat into the map.</h2>
+      <p class="dialog-copy">
+        Connect to Twitch chat with an OAuth token that has chat read access. Your token stays in
+        this browser tab and is never saved.
+      </p>
+      <label class="field-label" for="channel-input">CHANNEL NAME</label
+      ><input
+        class="dialog-input"
+        id="channel-input"
+        placeholder="yourchannel"
+        autocomplete="off"
+      />
+      <label class="field-label" for="username-input">ACCOUNT THAT OWNS THE TOKEN</label
+      ><input
+        class="dialog-input"
+        id="username-input"
+        placeholder="yourtwitchusername"
+        autocomplete="off"
+      />
+      <label class="field-label" for="token-input">CHAT OAUTH TOKEN</label
+      ><input
+        class="dialog-input"
+        id="token-input"
+        type="password"
+        placeholder="oauth:…"
+        autocomplete="off"
+      />
+      <p class="token-help">
+        Generate a token with <code>chat:read</code> permission. Do not share it or use a token you
+        do not control.
+      </p>
+      <div class="dialog-actions">
+        <button type="button" class="secondary-button" id="disconnect-button">Use demo mode</button
+        ><button type="button" class="primary-button" id="connect-button">Connect to chat</button>
+      </div>
+      <p id="connection-error" class="connection-error" role="status"></p>
+    </dialog>
 
-  <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
